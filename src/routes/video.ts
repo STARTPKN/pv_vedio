@@ -104,7 +104,7 @@ router.post(
 // GET /api/videos/:id — Get single video detail
 router.get("/:id", async (req: AuthRequest, res: Response) => {
   try {
-    const videoId = parseInt(req.params.id, 10);
+    const videoId = parseInt(req.params.id as string, 10);
 
     if (isNaN(videoId)) {
       res.status(400).json({ error: "Invalid video ID." });
